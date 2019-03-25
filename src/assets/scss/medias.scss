@@ -1,0 +1,36 @@
+@mixin xs {
+  @media (min-width: 0) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: map-get($grid-breakpoints, 'sm')) {
+    @content; // 480px
+  }
+}
+
+@mixin md {
+  @media (min-width: map-get($grid-breakpoints, 'md')) {
+    @content; // 768px
+  }
+}
+
+@mixin lg {
+  @media (min-width: map-get($grid-breakpoints, 'lg')) {
+    @content; // 992px
+  }
+}
+
+@mixin xl {
+  @media (min-width: map-get($grid-breakpoints, 'xl')) {
+    @content; // 1200px
+  }
+}
+
+// FRAMEWORK MIXINS, DECLARE YOUR BREAKPOINTS HERE AS YOU NEED.
+@mixin tablet-large {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
