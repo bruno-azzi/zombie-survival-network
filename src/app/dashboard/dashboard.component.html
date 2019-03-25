@@ -8,5 +8,16 @@
         <h1>Welcome</h1>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <h2>Survivors</h2>
+        <ul *ngIf="survivors">
+          <li *ngFor="let survivor of survivors">{{ survivor.name }}</li>
+        </ul>
+        <div class="loader" *ngIf="!survivors">
+          Loading...
+        </div>
+      </div>
+    </div>
   </div>
 </main>

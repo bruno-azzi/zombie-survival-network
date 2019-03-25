@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+
+import { Survivor } from './survivor.types';
+import { SurvivorService } from './survivor.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +11,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  @Input() survivors: Survivor[];
+
+  constructor(private survivorService: SurvivorService) {}
 
   ngOnInit() {
+    this.survivorService.getSurvivors().subscribe((data) => {
+      this.survivors = data;
+    }, error => {
+      console.log(error);
+    });
   }
-
 }
