@@ -3,6 +3,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { SurvivorModule } from './survivor/survivor.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   ],
   imports: [
     BrowserModule,
+    SurvivorModule,
     DashboardModule,
     AppRoutingModule
   ],

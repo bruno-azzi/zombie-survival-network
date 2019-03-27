@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SurvivorService } from './survivor.service';
 import { DashboardComponent } from './dashboard.component';
+import { SurvivorModule } from '../survivor/survivor.module';
+import { SurvivorService } from '../survivor/survivor.service';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { DashboardComponent } from './dashboard.component';
   ],
   imports: [
     CommonModule,
+    SurvivorModule,
     HttpClientModule
   ],
   exports: [
