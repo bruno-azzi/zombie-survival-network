@@ -4,10 +4,8 @@
       <div class="col">
         <h1>Zombie Survival Network</h1>
       </div>
-      <div class="col">
-        <h1>Welcome</h1>
-      </div>
     </div>
+
     <div class="row">
       <div class="col">
         <h2>Survivors List</h2>
@@ -17,6 +15,10 @@
         <div class="loader" *ngIf="!survivors">
           Loading...
         </div>
+      </div>
+
+      <div class="col">
+        <app-add-survivor></app-add-survivor>
       </div>
     </div>
   </div>

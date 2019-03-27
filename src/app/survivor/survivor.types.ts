@@ -5,6 +5,7 @@ export class Survivor {
   age: number;
   gender: string;
   lonlat: any;
-  infected?: boolean;
+  ['infected?']: boolean;
+  items: string;
 
 }

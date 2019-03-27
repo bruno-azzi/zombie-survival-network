@@ -22,7 +22,7 @@ export class SurvivorService {
         person.age = survivor.age;
         person.gender = survivor.gender;
         person.lonlat = survivor.lonlat;
-        person.infected = survivor.infected;
+        person['infected?'] = survivor.infected;
         return person;
       });
     }));
