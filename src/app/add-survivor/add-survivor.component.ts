@@ -14,6 +14,39 @@ export class AddSurvivorComponent implements OnInit {
   newSurvivor;
   addSurvivorForm: FormGroup;
   @Output() updatedSurvivorList = new EventEmitter();
+  lat;
+  lng;
+  zoom = 15;
+  styles = [
+    {
+      'stylers': [
+        {
+          'hue': '#ff1a00'
+        },
+        {
+          'invert_lightness': true
+        },
+        {
+          'saturation': -100
+        },
+        {
+          'lightness': 33
+        },
+        {
+          'gamma': 0.5
+        }
+      ]
+    },
+    {
+      'featureType': 'water',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#2D333C'
+        }
+      ]
+    }
+  ];
 
   constructor(
     private addSurvivorService: AddSurvivorService) { }
@@ -23,21 +56,47 @@ export class AddSurvivorComponent implements OnInit {
       name: new FormControl(null, [Validators.required]),
       age: new FormControl(null, [Validators.required]),
       gender: new FormControl(null, [Validators.required]),
-      lonLat: new FormControl(null),
+      lonlat: new FormControl(null),
       items: new FormControl(null, [Validators.required]),
       ['infected?']: new FormControl(null)
     });
+
+    this.getLocation();
+  }
+
+  dragStart(e) {
+    console.log('dragStart', e.coords);
+  }
+
+  dragEnd(e) {
+    console.log('dragEnd', e.coords);
+    this.updateLocationInput(e.coords.lat, e.coords.lng);
+  }
+
+  updateLocationInput(lon, lat) {
+    this.addSurvivorForm.controls.lonlat.patchValue(`Point(${lon} ${lat})`);
+  }
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.updateLocationInput(this.lng, this.lat);
+      });
+    }
   }
 
   onSubmit() {
     if (this.addSurvivorForm.valid) {
       const formValue = this.addSurvivorForm.value;
+      console.log('formValue', formValue);
 
       this.addSurvivorService.addSurvivor(formValue).subscribe(data => {
         this.newSurvivor = data;
-        console.log('newSurvivor:', this.newSurvivor)
+        console.log('newSurvivor:', this.newSurvivor);
         this.emitSurvivorsUpdate();
-
+        this.addSurvivorForm.reset();
       }, error => {
         console.log('DEU PAU!:', error);
       });

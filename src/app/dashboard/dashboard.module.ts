@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { AgmCoreModule } from '@agm/core';
 import { DashboardComponent } from './dashboard.component';
 import { SurvivorModule } from '../survivor/survivor.module';
 import { SurvivorService } from '../survivor/survivor.service';
 import { AddSurvivorComponent } from '../add-survivor/add-survivor.component';
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -18,7 +18,10 @@ import { AddSurvivorComponent } from '../add-survivor/add-survivor.component';
     CommonModule,
     SurvivorModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD7hc72Gqw8yb7tTPbIHC6efb1LFARahwc'
+    })
   ],
   exports: [
     DashboardComponent,

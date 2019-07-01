@@ -27,13 +27,18 @@
 
   <div class="form-field">
     <label for="lonLat">Longitude e latidude</label>
-    <input type="text" id="lonLat" formControlName="lonLat">
+    <input type="text" id="lonLat" formControlName="lonlat">
   </div>
 
   <div class="form-field">
     <label for="items">Items</label>
     <input type="text" id="items" formControlName="items">
   </div>
+
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" [styles]="styles">
+    <agm-marker class="marker" [latitude]="lat" [longitude]="lng" (dragStart)="dragStart($event)"
+      (dragEnd)="dragEnd($event)" [markerDraggable]="true"></agm-marker>
+  </agm-map>
 
   <button type="submit" (click)="onSubmit()">submit</button>
 </form>

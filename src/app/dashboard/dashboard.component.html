@@ -7,13 +7,12 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <!-- <h1>Zombie Survival Network</h1> -->
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <!-- <h2>Survivors List</h2> -->
+        <h2>Survivors List</h2>
         <div class="survivors">
           <app-survivor (click)="getSurvivorDetails(survivor)" *ngFor="let survivor of survivors" [survivor]="survivor"></app-survivor>
         </div>
