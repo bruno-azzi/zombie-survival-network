@@ -6,10 +6,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { DashboardComponent } from './dashboard.component';
 import { SurvivorModule } from '../survivor/survivor.module';
+import { HeaderComponent } from '../header/header.component';
 import { SurvivorService } from '../survivor/survivor.service';
 import { AddSurvivorComponent } from '../add-survivor/add-survivor.component';
 @NgModule({
   declarations: [
+    HeaderComponent,
     DashboardComponent,
     AddSurvivorComponent
   ],
@@ -24,6 +26,7 @@ import { AddSurvivorComponent } from '../add-survivor/add-survivor.component';
     })
   ],
   exports: [
+    HeaderComponent,
     DashboardComponent,
     AddSurvivorComponent
   ],

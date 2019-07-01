@@ -1,0 +1,21 @@
+@import '../../assets/scss/imports.scss';
+
+[data-component='header'] {
+  background: $blue-light;
+  height: 60px;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    font-size: 0;
+  }
+
+  img {
+    width: 200px;
+  }
+}
