@@ -1,1 +1,19 @@
 @import './assets/scss/imports.scss';
+
+html {
+  body {
+    background: $blue-dark;
+    font-family: $main-font;
+  }
+
+  * {
+    color: $white;
+  }
+}
+
+input,
+button {
+  background: none;
+  border: 1px solid $blue-light;
+}
+

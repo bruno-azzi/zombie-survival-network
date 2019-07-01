@@ -9,9 +9,20 @@
     <input type="number" id="age" formControlName="age">
   </div>
 
-  <div class="form-field">
+  <!-- <div class="form-field">
     <label for="gender">Gênero</label>
     <input type="text" id="gender" formControlName="gender">
+  </div> -->
+  <div class="form-field">
+    <label for="gender">Gênero</label>
+    <div class="radio-group">
+      <label class="radio-label" for="male">Masculino</label>
+      <input type="radio" value="M" formControlName="gender" id="male">
+    </div>
+    <div class="radio-group">
+      <label class="radio-label" for="female">Feminino</label>
+      <input type="radio" value="F" formControlName="gender" id="female">
+    </div>
   </div>
 
   <div class="form-field">

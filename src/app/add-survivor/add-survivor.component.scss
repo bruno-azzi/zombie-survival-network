@@ -1,1 +1,12 @@
 @import '../../assets/scss/imports.scss';
+
+[data-component='add-survivor'] {
+
+  .radio-group {
+    .radio-label {
+      display: block;
+      width: 100%;
+      margin: 0 0 5px;
+    }
+  }
+}

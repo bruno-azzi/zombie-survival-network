@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+
 import { Survivor } from './survivor.types';
 
 @Component({
@@ -9,11 +10,12 @@ import { Survivor } from './survivor.types';
 })
 export class SurvivorComponent implements OnInit {
 
-  @Input() person: Survivor;
+  @Input() survivor: Survivor;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

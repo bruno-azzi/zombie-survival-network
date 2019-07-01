@@ -1,16 +1,21 @@
 <main data-component="dashboard">
+  <header>
+    <div class="container">
+      <img src="../../assets/img/logo.png" alt="Logo Zombie.io" title="Zombie.io Survivor Social Network">
+    </div>
+  </header>
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>Zombie Survival Network</h1>
+        <!-- <h1>Zombie Survival Network</h1> -->
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <h2>Survivors List</h2>
+        <!-- <h2>Survivors List</h2> -->
         <div class="survivors">
-          <app-survivor *ngFor="let survivor of survivors" [person]="survivor"></app-survivor>
+          <app-survivor (click)="getSurvivorDetails(survivor)" *ngFor="let survivor of survivors" [survivor]="survivor"></app-survivor>
         </div>
         <div class="loader" *ngIf="!survivors">
           Loading...
@@ -18,7 +23,7 @@
       </div>
 
       <div class="col">
-        <app-add-survivor></app-add-survivor>
+        <app-add-survivor (updatedSurvivorList)="onUpdateSurvivors($event)"></app-add-survivor>
       </div>
     </div>
   </div>

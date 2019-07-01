@@ -1,9 +1,7 @@
-import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 
 import { AddSurvivorService } from './add-survivor.service';
-import { SurvivorService } from '../survivor/survivor.service';
-import { Survivor } from '../survivor/survivor.types';
 
 @Component({
   selector: 'app-add-survivor',
@@ -13,31 +11,41 @@ import { Survivor } from '../survivor/survivor.types';
 })
 export class AddSurvivorComponent implements OnInit {
 
+  newSurvivor;
   addSurvivorForm: FormGroup;
-  survivor: Survivor;
+  @Output() updatedSurvivorList = new EventEmitter();
 
   constructor(
-    private addSurvivorService: AddSurvivorService
-    ) { }
+    private addSurvivorService: AddSurvivorService) { }
 
   ngOnInit() {
     this.addSurvivorForm = new FormGroup({
-      name: new FormControl(null),
-      age: new FormControl(null),
-      gender: new FormControl(null),
+      name: new FormControl(null, [Validators.required]),
+      age: new FormControl(null, [Validators.required]),
+      gender: new FormControl(null, [Validators.required]),
       lonLat: new FormControl(null),
-      items: new FormControl(null),
+      items: new FormControl(null, [Validators.required]),
       ['infected?']: new FormControl(null)
     });
   }
 
   onSubmit() {
-    var formValue = this.addSurvivorForm.value;
-    this.addSurvivorService.addSurvivor(formValue).subscribe((data) => {
-      this.survivor = data;
-    }, error => {
-      console.log(error);
-    });
+    if (this.addSurvivorForm.valid) {
+      const formValue = this.addSurvivorForm.value;
+
+      this.addSurvivorService.addSurvivor(formValue).subscribe(data => {
+        this.newSurvivor = data;
+        console.log('newSurvivor:', this.newSurvivor)
+        this.emitSurvivorsUpdate();
+
+      }, error => {
+        console.log('DEU PAU!:', error);
+      });
+    }
+  }
+
+  emitSurvivorsUpdate() {
+    this.updatedSurvivorList.emit();
   }
 
 }
