@@ -14,6 +14,7 @@ html {
 input,
 button {
   background: none;
-  border: 1px solid $blue-light;
+  border: 1px solid $grey;
+  outline: none !important;
 }
 

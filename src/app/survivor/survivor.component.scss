@@ -4,8 +4,23 @@
   position: relative;
   left: -100%;
   opacity: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  border-bottom: 1px solid $blue-light;
+  margin: 0 0 8px;
 
-  h4 {
+  .name {
     font-weight: 300;
+    margin: 0;
+  }
+
+  .infected-label {
+    text-align: right;
+    color: $red;
+  }
+
+  .name,
+  .infected-label {
+    padding: 8px 0;
   }
 }

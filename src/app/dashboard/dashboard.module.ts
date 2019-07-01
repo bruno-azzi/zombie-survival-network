@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard.component';
 import { SurvivorModule } from '../survivor/survivor.module';
 import { HeaderComponent } from '../header/header.component';
@@ -18,11 +20,12 @@ import { AddSurvivorComponent } from '../add-survivor/add-survivor.component';
   imports: [
     FormsModule,
     CommonModule,
+    RouterModule,
     SurvivorModule,
     HttpClientModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD7hc72Gqw8yb7tTPbIHC6efb1LFARahwc'
+      apiKey: environment.mapApiKey
     })
   ],
   exports: [

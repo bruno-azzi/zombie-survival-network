@@ -1,18 +1,12 @@
 <form data-component="add-survivor" id="addSurvivorForm" [formGroup]="addSurvivorForm">
   <div class="form-field">
-    <label for="name">Nome</label>
-    <input type="text" id="name" formControlName="name">
+    <input class="input" placeholder="Name" type="text" id="name" formControlName="name">
   </div>
 
   <div class="form-field">
-    <label for="age">Idade</label>
-    <input type="number" id="age" formControlName="age">
+    <input class="input" placeholder="Age" type="tel" id="age" formControlName="age">
   </div>
 
-  <!-- <div class="form-field">
-    <label for="gender">Gênero</label>
-    <input type="text" id="gender" formControlName="gender">
-  </div> -->
   <div class="form-field">
     <label for="gender">Gênero</label>
     <div class="radio-group">
@@ -26,18 +20,52 @@
   </div>
 
   <div class="form-field">
-    <label for="lonLat">Longitude e latidude</label>
-    <input type="text" id="lonLat" formControlName="lonlat">
+    <input class="input" placeholder="Location" type="text" id="lonLat" formControlName="lonlat">
   </div>
 
   <div class="form-field">
-    <label for="items">Items</label>
-    <input type="text" id="items" formControlName="items">
+    <input class="input" placeholder="Items" type="text" id="items" formControlName="items">
+  </div>
+
+  <div class="inventory row">
+    <div class="col-md-3 item water">
+      <span class="icon"></span>
+      <!-- <button class="btns" (click)="decreaseItemCount($event)">-</button> -->
+      <input class="item-input" type="tel" maxlength="2" formControlName="water">
+      <!-- <button class="btns" (click)="increaseItemCount($event)" [updatedInputValue]="onUpdateInputValue()">+</button> -->
+    </div>
+
+    <div class="col-md-3 item food">
+      <span class="icon"></span>
+      <!-- <button class="btns">-</button> -->
+      <input class="item-input" type="tel" maxlength="2" formControlName="food">
+      <!-- <button class="btns">+</button> -->
+    </div>
+
+    <div class="col-md-3 item medication">
+      <span class="icon"></span>
+      <!-- <button class="btns">-</button> -->
+      <input class="item-input" type="tel" maxlength="2" formControlName="medication">
+      <!-- <button class="btns">+</button> -->
+    </div>
+
+    <div class="col-md-3 item ammo">
+      <span class="icon"></span>
+      <!-- <button class="btns">-</button> -->
+      <input class="item-input" type="tel" maxlength="2" formControlName="ammo">
+      <!-- <button class="btns">+</button> -->
+    </div>
   </div>
 
   <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" [styles]="styles">
-    <agm-marker class="marker" [latitude]="lat" [longitude]="lng" (dragStart)="dragStart($event)"
-      (dragEnd)="dragEnd($event)" [markerDraggable]="true"></agm-marker>
+    <agm-marker
+      class="marker"
+      [latitude]="lat"
+      [longitude]="lng"
+      (dragStart)="dragStart($event)"
+      (dragEnd)="dragEnd($event)"
+      [markerDraggable]="true">
+    </agm-marker>
   </agm-map>
 
   <button type="submit" (click)="onSubmit()">submit</button>

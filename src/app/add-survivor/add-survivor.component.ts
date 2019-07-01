@@ -1,5 +1,6 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import $ from 'jquery';
 
 import { AddSurvivorService } from './add-survivor.service';
 
@@ -14,6 +15,7 @@ export class AddSurvivorComponent implements OnInit {
   newSurvivor;
   addSurvivorForm: FormGroup;
   @Output() updatedSurvivorList = new EventEmitter();
+  // @Output() updatedInputValue = new EventEmitter();
   lat;
   lng;
   zoom = 15;
@@ -58,6 +60,10 @@ export class AddSurvivorComponent implements OnInit {
       gender: new FormControl(null, [Validators.required]),
       lonlat: new FormControl(null),
       items: new FormControl(null, [Validators.required]),
+      water: new FormControl(0, [Validators.required]),
+      food: new FormControl(0, [Validators.required]),
+      medication: new FormControl(0, [Validators.required]),
+      ammo: new FormControl(0, [Validators.required]),
       ['infected?']: new FormControl(null)
     });
 
@@ -106,5 +112,16 @@ export class AddSurvivorComponent implements OnInit {
   emitSurvivorsUpdate() {
     this.updatedSurvivorList.emit();
   }
+
+  // increaseItemCount(e) {
+  //   const el = e.srcElement;
+  //   const controlName = $(el).prev().attr('formControlName');
+  //   let value = $(el).prev().val();
+  //   value++;
+  //   $(el).prev().val(value)
+  //   console.log(value)
+  //   this.updatedInputValue = value;
+  // }
+
 
 }

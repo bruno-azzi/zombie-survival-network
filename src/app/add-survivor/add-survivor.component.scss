@@ -10,8 +10,80 @@
     }
   }
 
+  .input {
+    background: $blue-dark;
+    color: $grey;
+    border: 0;
+    border-bottom: 1px solid $grey;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+    transition: .3s ease;
+
+    &::placeholder {
+      color: $grey;
+      transition: .3s ease;
+    }
+
+    &:focus,
+    &.ng-valid {
+      color: $white;
+      border-color: $white;
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+  }
+
   agm-map {
     height: 300px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      background-image: url('../../assets/img/water.svg');
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 0 15px;
+      background-repeat: no-repeat;
+      background-size: 50px 50px;
+      background-position: center;
+    }
+
+    .btns {
+      padding: 0;
+      width: 25px;
+      height: 25px;
+    }
+
+    .item-input {
+      width: 50px;
+      text-align: center;
+    }
+
+    &.food {
+      .icon {
+        background-image: url('../../assets/img/food.svg');
+      }
+    }
+
+    &.medication {
+      .icon {
+        background-image: url('../../assets/img/medication.svg');
+      }
+    }
+
+    &.ammo {
+      .icon {
+        background-image: url('../../assets/img/ammo.svg');
+      }
+    }
   }
 
 }

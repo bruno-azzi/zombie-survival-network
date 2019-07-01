@@ -2,23 +2,22 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <h2>Survivors List</h2>
-        <div class="survivors">
-          <app-survivor (click)="getSurvivorDetails(survivor)" *ngFor="let survivor of survivors" [survivor]="survivor"></app-survivor>
-        </div>
-        <div class="loader" *ngIf="!survivors">
-          Loading...
+      <div class="col-md-4">
+        <div class="survivors-column">
+          <h2 class="title">Survivors List</h2>
+          <div class="survivors">
+            <app-survivor (click)="getSurvivorDetails(survivor)" *ngFor="let survivor of survivors" [survivor]="survivor"></app-survivor>
+          </div>
+          <div class="loader" *ngIf="!survivors">
+            Loading...
+          </div>
         </div>
       </div>
 
-      <div class="col">
-        <app-add-survivor (updatedSurvivorList)="onUpdateSurvivors()"></app-add-survivor>
+      <div class="col-md-8 main-column">
+        <div class="block">
+          <app-add-survivor (updatedSurvivorList)="onUpdateSurvivors()"></app-add-survivor>
+        </div>
       </div>
     </div>
   </div>

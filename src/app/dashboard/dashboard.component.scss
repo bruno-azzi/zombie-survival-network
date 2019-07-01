@@ -1,5 +1,31 @@
 @import '../../assets/scss/imports.scss';
 
 [data-component='dashboard'] {
-  display: block;
+
+  .survivors-column {
+    border-radius: 5px;
+    border: 1px solid $blue-light;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
+  }
+
+  .block {
+    border-radius: 5px;
+    background: $blue-light;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
+    padding: 20px;
+  }
+
+  .survivors {
+    padding: 12px 15px;
+  }
+
+  .title {
+    text-transform: uppercase;
+    margin: 0;
+    background: $blue-light;
+    border-radius: 5px 5px 0 0;
+    padding: 12px 15px;
+    font-weight: 400;
+  }
+
 }
